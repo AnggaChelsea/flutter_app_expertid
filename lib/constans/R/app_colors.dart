@@ -7,4 +7,5 @@ class AppColor {
   Color grayBorder = Color.fromARGB(255, 169, 166, 166);
   Color inputColor = Color.fromARGB(255, 255, 170, 170);
   Color buttonColor = Colors.blue;
+  Color colorUmum = Color.fromARGB(255, 172, 11, 175);
 }

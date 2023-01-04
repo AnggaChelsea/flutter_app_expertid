@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:moviebook/views/login_page.dart';
 import 'package:moviebook/views/main_page.dart';
 import 'package:moviebook/views/register_page.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        textTheme: GoogleFonts.poppinsTextTheme(),
         primarySwatch: Colors.blue,
       ),
       // home: '/',

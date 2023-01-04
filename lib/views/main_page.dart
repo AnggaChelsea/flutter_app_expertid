@@ -20,6 +20,8 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
+        elevation: 0,
+        backgroundColor: R.colors.colorUmum,
         child: Expanded(
           child: Image.asset(
             R.assets.icDiscus,
@@ -56,6 +58,7 @@ class _MainPageState extends State<MainPage> {
           ),
         ]),
         child: BottomAppBar(
+          elevation: 0.0,
           color: Colors.white,
           child: Container(
             height: 60,

@@ -35,16 +35,28 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        title: const Text(
-          "Yuk isi data diri",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w700,
-            fontSize: 18,
+      backgroundColor: Color(0xfff0f3f5),
+      appBar: PreferredSize(
+        //untuk tinggi appbar
+        preferredSize:
+            Size.fromHeight(kToolbarHeight + 20), //untuk tinggikan appbar
+        child: AppBar(
+          elevation: 0,
+          iconTheme: const IconThemeData(color: Colors.black),
+          backgroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(20),
+              bottomRight: Radius.circular(20),
+            ),
+          ),
+          title: const Text(
+            "Yuk isi data diri",
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w700,
+              fontSize: 18,
+            ),
           ),
         ),
       ),
@@ -74,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
