@@ -21,6 +21,9 @@ class _RegisterPageState extends State<RegisterPage> {
   List<String> kelas = ['1', '2', '3'];
   String selectedKelas = '1';
   String? _selectedValue;
+
+  final emailController = TextEditingController();
+
   onTapGender(Gender selectedGender) {
     if (selectedGender == Gender.lakilaki) {
       gender = "laki-laki";
@@ -34,9 +37,9 @@ class _RegisterPageState extends State<RegisterPage> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           "Yuk isi data diri",
           style: TextStyle(
             color: Colors.black,
@@ -52,10 +55,13 @@ class _RegisterPageState extends State<RegisterPage> {
           ),
           child: ButtonLogin(
             onTap: () {
-              Navigator.of(context).pushReplacementNamed(MainPage.route);
+              print(emailController.text);
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil(MainPage.route, (context) => false);
             },
             backgroundColor: R.colors.buttonColor,
-            child: Text(
+            // ignore: sort_child_properties_last
+            child: const Text(
               "Register Sekarang",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
@@ -68,28 +74,29 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               InputRegister(
+                controller: emailController,
                 title: 'Email',
                 hintText: 'mail@mail.com',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              InputRegister(
+              const InputRegister(
                 title: 'Nama Lengkap',
                 hintText: "Saputra Albert",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              Text(
+              const Text(
                 "Jenis Kelamin",
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               ),
@@ -121,13 +128,13 @@ class _RegisterPageState extends State<RegisterPage> {
                             fontWeight: FontWeight.normal,
                             color: gender == 'laki-laki'
                                 ? Colors.white
-                                : Color(0xff2282828),
+                                : const Color(0xff2282828),
                           ),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Expanded(
@@ -157,7 +164,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             fontWeight: FontWeight.normal,
                             color: gender == 'perempuan'
                                 ? Colors.white
-                                : Color(0xff2282828),
+                                : const Color(0xff2282828),
                           ),
                         ),
                       ),
@@ -166,13 +173,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
               Container(
-                child: Text(
+                child: const Text(
                   "Kelas",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                 ),
               ),
               Container(
-                  padding: EdgeInsets.symmetric(
+                  padding: const EdgeInsets.symmetric(
                     horizontal: 14,
                   ),
                   decoration: BoxDecoration(
@@ -195,10 +202,10 @@ class _RegisterPageState extends State<RegisterPage> {
                       );
                     }).toList(),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
-              InputRegister(
+              const InputRegister(
                 title: 'Nama Sekolah',
                 hintText: "Nama Sekolah",
               ),
@@ -211,14 +218,12 @@ class _RegisterPageState extends State<RegisterPage> {
 }
 
 class InputRegister extends StatelessWidget {
-  const InputRegister({
-    Key? key,
-    this.title,
-    this.hintText,
-  }) : super(key: key);
+  const InputRegister({Key? key, this.title, this.hintText, this.controller})
+      : super(key: key);
 
   final String? title;
   final String? hintText;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -227,10 +232,10 @@ class InputRegister extends StatelessWidget {
       children: [
         Text(
           title!,
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
         ),
         Container(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 14,
           ),
           decoration: BoxDecoration(
@@ -240,10 +245,11 @@ class InputRegister extends StatelessWidget {
               color: Colors.white,
               border: Border.all(color: R.colors.grayBorder)),
           child: TextField(
+            controller: controller,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: hintText,
-              hintStyle: TextStyle(
+              hintStyle: const TextStyle(
                 color: Colors.grey,
               ),
             ),

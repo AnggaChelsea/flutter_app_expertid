@@ -26,19 +26,20 @@ class ButtonLogin extends StatelessWidget {
         vertical: 12,
       ),
       child: ElevatedButton(
-          onPressed: onTap,
-          style: ElevatedButton.styleFrom(
-            fixedSize: size,
-            primary: backgroundColor,
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: borderRadius,
-              side: BorderSide(
-                color: borderColor,
-              ),
+        onPressed: onTap,
+        style: ElevatedButton.styleFrom(
+          fixedSize: size,
+          primary: backgroundColor,
+          elevation: 0,
+          shape: RoundedRectangleBorder(
+            borderRadius: borderRadius,
+            side: BorderSide(
+              color: borderColor,
             ),
           ),
-          child: child),
+        ),
+        child: child,
+      ),
     );
   }
 }
