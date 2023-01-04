@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
       // Navigator.of(context).push(
       //   MaterialPageRoute(builder: (context) => LoginPage()),
       // );
-      Navigator.of(context).pushNamed("/login-page");
+      Navigator.of(context).pushReplacementNamed("/login-page");
     });
     return Scaffold(
       // appBar: AppBar(),

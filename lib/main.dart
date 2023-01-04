@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moviebook/views/login_page.dart';
+import 'package:moviebook/views/main_page.dart';
+import 'package:moviebook/views/register_page.dart';
 import 'package:moviebook/views/splash_screen.dart';
 
 void main() {
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget {
       routes: {
         "/": (context) => const SplashScreen(),
         "/login-page": (context) => const LoginPage(),
+        RegisterPage.route: (context) => const RegisterPage(),
+        MainPage.route: (context) => MainPage(),
       },
       // initialRoute: "/",
 

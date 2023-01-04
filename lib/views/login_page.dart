@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moviebook/constans/R/app_colors.dart';
 import 'package:moviebook/constans/r.dart';
+import 'package:moviebook/views/register_page.dart';
+import 'package:moviebook/widget/button_login.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -51,7 +53,12 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Spacer(),
           ButtonLogin(
+            onTap: () {
+              Navigator.of(context).pushNamed(RegisterPage.route);
+            },
+            size: Size(MediaQuery.of(context).size.width * 0.8, 50),
             backgroundColor: Colors.white,
+            borderRadius: BorderRadius.circular(25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -71,8 +78,11 @@ class _LoginPageState extends State<LoginPage> {
             borderColor: R.colors.primaryColor,
           ),
           ButtonLogin(
+            borderRadius: BorderRadius.circular(25),
+            onTap: () {},
             backgroundColor: Colors.black,
             borderColor: Colors.black,
+            size: Size(MediaQuery.of(context).size.width * 0.8, 50),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -92,43 +102,6 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ]),
       ),
-    );
-  }
-}
-
-class ButtonLogin extends StatelessWidget {
-  const ButtonLogin({
-    Key? key,
-    required this.backgroundColor,
-    required this.child,
-    required this.borderColor,
-  }) : super(key: key);
-
-  final Color backgroundColor;
-  final Widget child;
-  final Color borderColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 12,
-      ),
-      child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            fixedSize: Size(MediaQuery.of(context).size.width * 0.8, 50),
-            primary: backgroundColor,
-            elevation: 0,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(25),
-              side: BorderSide(
-                color: borderColor,
-              ),
-            ),
-          ),
-          child: child),
     );
   }
 }
