@@ -20,28 +20,18 @@ class _LoginPageState extends State<LoginPage> {
       body: Padding(
         padding: const EdgeInsets.all(32.0),
         child: Column(children: [
-          Align(
-            alignment: Alignment.topLeft,
-            child: Text(
-              R.string.login,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
+          Spacer(),
           Image.asset(
             R.assets.imgLogin,
-          ),
-          SizedBox(
-            height: 30,
+            width: 150,
           ),
           Text(
             R.string.welcome,
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: R.colors.textColor,
+            ),
           ),
           SizedBox(
             height: 30,
@@ -49,7 +39,11 @@ class _LoginPageState extends State<LoginPage> {
           Text(
             R.string.loginDescription,
             textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              color: Colors.black,
+            ),
           ),
           Spacer(),
           ButtonLogin(

@@ -8,4 +8,6 @@ class AppColor {
   Color inputColor = Color.fromARGB(255, 255, 170, 170);
   Color buttonColor = Colors.blue;
   Color colorUmum = Color.fromARGB(255, 172, 11, 175);
+  Color textColor = Color(0xffDD9BC3);
+  Color backgroundColor = Color(0xfff0f3f5);
 }

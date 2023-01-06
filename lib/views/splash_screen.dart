@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:moviebook/constans/r.dart';
 import 'package:moviebook/views/login_page.dart';
 
@@ -17,10 +19,32 @@ class SplashScreen extends StatelessWidget {
       Navigator.of(context).pushReplacementNamed("/login-page");
     });
     return Scaffold(
-      // appBar: AppBar(),
-      backgroundColor: Color(0xff01bdc2),
-      body: Center(
-        child: Image.asset(R.assets.icSplash),
+      backgroundColor: R.colors.colorUmum,
+      body: Container(
+        child: SafeArea(
+          child: Column(
+            children: [
+              Spacer(),
+              Center(
+                child: Image.asset(R.assets.icSplash),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Center(
+                child: Text(
+                  "Belajar Sambil Main",
+                  style: GoogleFonts.poppins().copyWith(
+                    fontSize: 25,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Spacer(),
+            ],
+          ),
+        ),
       ),
     );
   }

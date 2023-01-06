@@ -42,8 +42,9 @@ class _RegisterPageState extends State<RegisterPage> {
             Size.fromHeight(kToolbarHeight + 20), //untuk tinggikan appbar
         child: AppBar(
           elevation: 0,
-          iconTheme: const IconThemeData(color: Colors.black),
-          backgroundColor: Colors.white,
+          iconTheme:
+              const IconThemeData(color: Color.fromARGB(255, 255, 255, 255)),
+          backgroundColor: R.colors.colorUmum,
           shape: RoundedRectangleBorder(
             borderRadius: const BorderRadius.only(
               bottomLeft: Radius.circular(20),
@@ -53,7 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
           title: const Text(
             "Yuk isi data diri",
             style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontWeight: FontWeight.w700,
               fontSize: 18,
             ),
@@ -71,15 +72,16 @@ class _RegisterPageState extends State<RegisterPage> {
               Navigator.of(context)
                   .pushNamedAndRemoveUntil(MainPage.route, (context) => false);
             },
-            backgroundColor: R.colors.buttonColor,
+            backgroundColor: R.colors.colorUmum,
             // ignore: sort_child_properties_last
             child: const Text(
               "Register Sekarang",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
-            borderColor: Colors.transparent,
-            size: Size(MediaQuery.of(context).size.width * 0.8, 10),
+            borderColor: R.colors.colorUmum,
+            size: Size(MediaQuery.of(context).size.width * 0.8, 20),
+
             borderRadius: BorderRadius.circular(10),
           ),
         ),
@@ -121,7 +123,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         style: ElevatedButton.styleFrom(
                             elevation: 0,
                             primary: gender == 'laki-laki'
-                                ? R.colors.buttonColor
+                                ? R.colors.colorUmum
                                 : Colors.white,
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
@@ -159,7 +161,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           primary: gender == 'perempuan'
-                              ? R.colors.buttonColor
+                              ? R.colors.colorUmum
                               : Colors.white,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
