@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "917258654265",
+    "project_id": "studybookflutter",
+    "storage_bucket": "studybookflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917258654265:android:72dcc6c3957c9f63eb33e8",
+        "android_client_info": {
+          "package_name": "com.example.moviebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917258654265-46ul2s02husriccaorggrr62q631phrc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moviebook",
+            "certificate_hash": "9d6c25ec8008f6c25dc419694894ceba3d23fa92"
+          }
+        },
+        {
+          "client_id": "917258654265-4qb2c34j7jadn23b1664elp2tiab8u7n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDa7jHUds4yG86rxty62NI3O3pZTQJjfIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917258654265-4qb2c34j7jadn23b1664elp2tiab8u7n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -213,8 +213,10 @@ class CardBelajar extends StatelessWidget {
       ),
       margin: const EdgeInsets.only(
         bottom: 18,
+        left: 15,
+        right: 15,
       ),
-      width: 350,
+      width: double.infinity,
       decoration: BoxDecoration(
           color: Colors.white70, borderRadius: BorderRadius.circular(10)),
       child: Row(children: [
@@ -233,7 +235,7 @@ class CardBelajar extends StatelessWidget {
         ),
         Expanded(
           child: Container(
-            padding: const EdgeInsets.only(left: 20),
+            padding: const EdgeInsets.only(left: 10),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(

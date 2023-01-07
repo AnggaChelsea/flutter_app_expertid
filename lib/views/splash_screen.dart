@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'dart:ui';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moviebook/constans/r.dart';
 import 'package:moviebook/views/login_page.dart';
+import 'package:moviebook/views/main_page.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -16,7 +18,12 @@ class SplashScreen extends StatelessWidget {
       // Navigator.of(context).push(
       //   MaterialPageRoute(builder: (context) => LoginPage()),
       // );
-      Navigator.of(context).pushReplacementNamed("/login-page");
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        Navigator.of(context).pushReplacementNamed(MainPage.route);
+      } else {
+        Navigator.of(context).pushReplacementNamed("/login-page");
+      }
     });
     return Scaffold(
       backgroundColor: R.colors.colorUmum,
@@ -24,11 +31,11 @@ class SplashScreen extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
-              Spacer(),
+              const Spacer(),
               Center(
                 child: Image.asset(R.assets.icSplash),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Center(
@@ -41,7 +48,13 @@ class SplashScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              Spacer(),
+              const SizedBox(
+                height: 20,
+              ),
+              const CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+              ),
+              const Spacer()
             ],
           ),
         ),

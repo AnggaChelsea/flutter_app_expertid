@@ -14,7 +14,8 @@
         {
             "name": "moviebook",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            // "deviceId": "chrome"
         },
         {
             "name": "moviebook (profile mode)",

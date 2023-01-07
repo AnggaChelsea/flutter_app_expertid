@@ -6,8 +6,14 @@ import 'package:moviebook/views/main_page.dart';
 import 'package:moviebook/views/main/latihan_soal/mapel_page.dart';
 import 'package:moviebook/views/register_page.dart';
 import 'package:moviebook/views/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'controllers/firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+      // options: DefaultFirebaseOptions.currentPlatform,
+      );
   runApp(const MyApp());
 }
 
