@@ -13,6 +13,7 @@ class PaketSoalPage extends StatefulWidget {
 class _PaketSoalPageState extends State<PaketSoalPage> {
   @override
   Widget build(BuildContext context) {
+    final dataKosong = null;
     return Scaffold(
       backgroundColor: R.colors.backgroundColor,
       appBar: AppBar(
@@ -32,18 +33,51 @@ class _PaketSoalPageState extends State<PaketSoalPage> {
             ),
           ),
           Expanded(
-            child: GridView.count(
-              crossAxisCount: 2,
-              mainAxisSpacing: 10,
-              crossAxisSpacing: 1,
-              childAspectRatio: 4 /
-                  3, //ini artinya menguukur lebar dan ketinggian, lebar 4 di bagi ketinggian 3
-              children: [
-                PaketSoal(),
-                PaketSoal(),
-                PaketSoal(),
-              ],
-            ),
+            child: dataKosong == null
+                ? Column(
+                    children: [
+                      Spacer(),
+                      Center(
+                        child: Image.asset(R.assets.dataKosong),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Center(
+                        child: Text(
+                          "Yah, Paket tidak tersedia",
+                          style: GoogleFonts.poppins().copyWith(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                          "Tenang, masih banyak yang bisa kamu pelajari.cari lagi yuk!",
+                          style: GoogleFonts.poppins().copyWith(
+                            fontSize: 12,
+                            color: Colors.grey,
+                          )),
+                      Spacer(),
+                    ],
+                  )
+                : Container(
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 1,
+                      childAspectRatio: 4 /
+                          3, //ini artinya menguukur lebar dan ketinggian, lebar 4 di bagi ketinggian 3
+                      children: [
+                        PaketSoal(),
+                        PaketSoal(),
+                        PaketSoal(),
+                      ],
+                    ),
+                  ),
           ),
         ],
       ), //corsasignalimnt itu untuk berapa grid ke pinggirnya

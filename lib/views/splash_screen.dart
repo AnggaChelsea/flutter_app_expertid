@@ -5,7 +5,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moviebook/constans/r.dart';
-import 'package:moviebook/views/login_page.dart';
 import 'package:moviebook/views/main_page.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -18,6 +17,7 @@ class SplashScreen extends StatelessWidget {
       // Navigator.of(context).push(
       //   MaterialPageRoute(builder: (context) => LoginPage()),
       // );
+
       final user = FirebaseAuth.instance.currentUser;
       if (user != null) {
         Navigator.of(context).pushReplacementNamed(MainPage.route);

@@ -15,4 +15,5 @@ class Assets {
   String icAvatarNav = "assets/ic_avatar.png";
   String icBanner = "assets/img_banner.png";
   String icMotor = "assets/motoricon.png";
+  String dataKosong = "assets/Illustrasi.png";
 }

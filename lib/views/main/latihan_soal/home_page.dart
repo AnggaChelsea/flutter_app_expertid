@@ -1,9 +1,12 @@
+import 'dart:convert';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moviebook/constans/r.dart';
+import 'package:moviebook/models/event_banner.dart';
 import 'package:moviebook/views/main/latihan_soal/mapel_page.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,8 +16,31 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  EventBanner? eventBanner;
+
+  getEventData() async {
+    var headers = {
+      'x-api-key': '18be70c0-4e4d-44ff-a475-50c51ece99a3',
+    };
+
+    var url = Uri.parse('https://api.widyaedu.com/event/list?limit=10');
+    var response = await http.get(url, headers: headers);
+    print('Response status: ${response.statusCode}');
+    print('Response body: ${response.body}');
+    if (response.statusCode == 200) {
+      final dataEvent = jsonDecode(response.body);
+      eventBanner = EventBanner.fromJson(dataEvent);
+      setState(() {});
+    }
+  }
+
   @override
   int itemCount = 10;
+  void initState() {
+    super.initState();
+    getEventData();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xfff0f3f5),
@@ -56,15 +82,21 @@ class _HomePageState extends State<HomePage> {
                 margin: EdgeInsets.all(
                   10,
                 ),
-                child: ListView.builder(
-                  itemCount: 5,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                        margin: EdgeInsets.all(10),
-                        child: Image.asset(R.assets.icBanner));
-                  },
-                ),
+                child: eventBanner == null
+                    ? Center(child: CircularProgressIndicator())
+                    : ListView.builder(
+                        itemCount: eventBanner!.data!.length,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (BuildContext context, int index) {
+                          final currentEvent = eventBanner!.data![index];
+                          return GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                                margin: EdgeInsets.all(10),
+                                child: Image.network(currentEvent.eventImage!)),
+                          );
+                        },
+                      ),
               ),
               SizedBox(
                 height: 40,

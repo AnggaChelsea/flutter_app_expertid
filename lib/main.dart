@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:moviebook/views/login_page.dart';
+import 'package:moviebook/views/auth/login_page.dart';
+import 'package:moviebook/views/auth/register_page.dart';
 import 'package:moviebook/views/main/latihan_soal/paket_soal_page.dart';
 import 'package:moviebook/views/main_page.dart';
 import 'package:moviebook/views/main/latihan_soal/mapel_page.dart';
-import 'package:moviebook/views/register_page.dart';
 import 'package:moviebook/views/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'controllers/firebase_options.dart';

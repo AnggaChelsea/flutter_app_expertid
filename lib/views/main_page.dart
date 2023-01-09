@@ -1,8 +1,13 @@
+import 'dart:convert';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:moviebook/constans/r.dart';
+import 'package:moviebook/models/event_banner.dart';
 import 'package:moviebook/views/main/discussion/chat_screen.dart';
 import 'package:moviebook/views/main/latihan_soal/home_page.dart';
 import 'package:moviebook/views/main/profile/profile_screen.dart';
+import 'package:http/http.dart' as http;
 
 class MainPage extends StatefulWidget {
   MainPage({Key? key}) : super(key: key);
@@ -16,8 +21,12 @@ class _MainPageState extends State<MainPage> {
   final _pc = PageController();
   int index = 0;
 
+  EventBanner? eventBanner;
+
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         elevation: 0,
@@ -41,9 +50,16 @@ class _MainPageState extends State<MainPage> {
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
         controller: _pc,
-        children: [HomePage(), ProfileScreen()],
+        children: [
+          HomePage(),
+          ProfileScreen(),
+        ],
       ),
     );
+  }
+
+  void initState() {
+    super.initState();
   }
 
   Container BuilBottomnavigation() {

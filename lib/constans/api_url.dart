@@ -10,4 +10,10 @@ class ApiUrl {
   static String latihanSubmitJawaban = "exercise/kerjakan";
   static String latihanKerjakanSoal = "exercise/input_jawaban";
   static String latihanSkor = "exercise/score_result";
+
+  //api pocketbase
+  static String mappelList = "api/collections/data_pelajaran/records";
+  static String eventBanner = "api/collections/banner/records";
+  static String userList = "api/collections/student/records";
+  static String apiKey = "18be70c0-4e4d-44ff-a475-50c51ece99a0";
 }

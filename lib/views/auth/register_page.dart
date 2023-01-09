@@ -1,7 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:moviebook/constans/r.dart';
 import 'package:moviebook/views/main_page.dart';
 import 'package:moviebook/widget/button_login.dart';
+import 'package:http/http.dart ' as http;
+import 'package:pocketbase/pocketbase.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -22,7 +26,20 @@ class _RegisterPageState extends State<RegisterPage> {
   String selectedKelas = '1';
   String? _selectedValue;
 
+  doRegister() async {
+    var url = Uri.https('example.com', 'whatsit/create');
+    var response =
+        await http.post(url, body: {'name': 'doodle', 'color': 'blue'});
+    print('Response status: ${response.statusCode}');
+    print('Response body: ${response.body}');
+
+    print(await http.read(Uri.https('example.com', 'foobar.txt')));
+  }
+
   final emailController = TextEditingController();
+  final namaController = TextEditingController();
+  final sekolahController = TextEditingController();
+  late CollectionReference chat;
 
   onTapGender(Gender selectedGender) {
     if (selectedGender == Gender.lakilaki) {
@@ -34,6 +51,14 @@ class _RegisterPageState extends State<RegisterPage> {
   }
 
   Widget build(BuildContext context) {
+    chat = FirebaseFirestore.instance
+        .collection(
+          "users",
+        )
+        .doc(
+          "kimia",
+        )
+        .collection('murid');
     return Scaffold(
       backgroundColor: Color(0xfff0f3f5),
       appBar: PreferredSize(
@@ -67,11 +92,7 @@ class _RegisterPageState extends State<RegisterPage> {
             bottom: 30,
           ),
           child: ButtonLogin(
-            onTap: () {
-              print(emailController.text);
-              Navigator.of(context)
-                  .pushNamedAndRemoveUntil(MainPage.route, (context) => false);
-            },
+            onTap: () {},
             backgroundColor: R.colors.colorUmum,
             // ignore: sort_child_properties_last
             child: const Text(
@@ -103,7 +124,8 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(
                 height: 30,
               ),
-              const InputRegister(
+              InputRegister(
+                controller: namaController,
                 title: 'Nama Lengkap',
                 hintText: "Saputra Albert",
               ),
@@ -219,7 +241,8 @@ class _RegisterPageState extends State<RegisterPage> {
               const SizedBox(
                 height: 30,
               ),
-              const InputRegister(
+              InputRegister(
+                controller: sekolahController,
                 title: 'Nama Sekolah',
                 hintText: "Nama Sekolah",
               ),

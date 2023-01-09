@@ -33,15 +33,12 @@ class _ChatScreenState extends State<ChatScreen> {
   // }
 
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    // getDatafromFirebase();
-  }
-
   @override
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser!;
+    if (user == null) {
+      Navigator.of(context).pushNamed('/login-page');
+    }
     chat = FirebaseFirestore.instance
         .collection(
           "room",
